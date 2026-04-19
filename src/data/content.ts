@@ -5,7 +5,7 @@ export const navLinks = [
   { name: 'SOURCING', path: '/sourcing' },
   { name: 'PRODUCTS', path: '/products' },
   { name: 'EXPERT TEAM', path: '/expert-team' },
-  { name: 'DONATION', path: '/donation' },
+  { name: 'SOCIAL SERVICE', path: '/social-service' },
   { name: 'CONTACT US', path: '/contact' },
 ]
 
@@ -34,7 +34,29 @@ export const quickLinks = {
 }
 
 // Services data
-import { Users, Leaf, Wrench, Lock } from 'lucide-react';
+import { 
+  Users, 
+  Leaf, 
+  Wrench, 
+  Lock,
+  ClipboardCheck, 
+  FileCheck, 
+  Search, 
+  Eye, 
+  CheckCircle2, 
+  Shield, 
+  Factory, 
+  TrendingUp 
+} from 'lucide-react';
+
+export const auditTypes = [
+  { title: 'Factory Audit', icon: Factory },
+  { title: 'Social Compliance', icon: Users },
+  { title: 'Environmental', icon: Leaf },
+  { title: 'Technical', icon: Wrench },
+  { title: 'Security', icon: Lock },
+];
+
 import furnitureHomeDecor from '../assets/Furniture and home decor.png';
 
 // Product Inspection Category Images
@@ -82,34 +104,42 @@ export const productServices = [
   {
     title: 'Fabric Inspection',
     description: 'Fabric inspection is the process of evaluating the quality, defects, and specifications of fabric materials to ensure they meet the required standards for use in manufacturing. It is done using 4 Point System.',
+    icon: ClipboardCheck,
   },
   {
     title: 'PP Sample Inspection / Gold Seal Sample',
     description: 'Pre-production (PP) sample inspection is a quality control process conducted before mass production begins.',
+    icon: FileCheck,
   },
   {
     title: 'Pre-production Inspection',
     description: 'It means checking the quality of materials used before they go into making the final product.',
+    icon: Search,
   },
   {
     title: 'During Production Inspection',
     description: 'They only inspect some of the finished products, not all. They look for problems with the products being made and solve them immediately.',
+    icon: Eye,
   },
   {
     title: 'Inline inspection',
     description: 'It is basically catching quality problems as products are being made.',
+    icon: CheckCircle2,
   },
   {
     title: 'Final Random Inspection',
     description: 'Is a quality control process conducted at the end of garment production, where a random sample of finished garments is selected and inspected to ensure they meet specified quality standards before shipment.',
+    icon: Shield,
   },
   {
     title: 'Container Loading and Unloading Supervision',
     description: 'Container Loading Inspection involves overseeing the loading of goods into shipping containers to ensure safety, quality, and adherence to specific requirements.',
+    icon: Factory,
   },
   {
     title: 'Production Monitoring',
     description: 'Production monitoring involves tracking quality during production to identify issues early and maintain standards.',
+    icon: TrendingUp,
   },
 ]
 
@@ -448,6 +478,7 @@ export const footerLinks = {
     { name: 'About Us', path: '/about' },
     { name: 'Products', path: '/products' },
     { name: 'Services', path: '/services' },
+    { name: 'Social Service', path: '/social-service' },
     { name: 'Contact', path: '/contact' },
   ],
   contact: {

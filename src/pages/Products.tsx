@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Target, Award, Shield, X, ZoomIn } from 'luci
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
 import { hardlineProducts, softlineProducts, detailedProductCategories } from '@/data/content'
-import productsBanner from '@/assets/products.png'
+import productsBg from '@/assets/BACKGROUND/PRODUCTS.png'
 
 type LightboxItem = {
   image: string
@@ -133,20 +133,20 @@ export default function Products() {
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${productsBanner})`,
+            backgroundImage: `url(${productsBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/90 via-suvtex-charcoal/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/50 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
-          <SectionLabel text="What We Inspect" variant="light" className="mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-             <span className="text-gradient">Products</span>
+          <SectionLabel text="Product Expertise" variant="light" className="mb-4 drop-shadow-md" />
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Product <span className="text-gradient">Categories</span>
           </h1>
-          <p className="text-white/70 max-w-2xl text-lg">
-            Comprehensive inspection services for hardline and softline products
+          <p className="text-white font-bold mt-4 max-w-2xl text-base md:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            Comprehensive quality inspection across diverse product lines
           </p>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function Products() {
       <section className="section-padding bg-white">
         <div className="container-premium">
           <ScrollReveal className="text-center mb-16">
-            <SectionLabel text="Industries" className="mb-4" />
+            <SectionLabel text="Products" className="mb-4" />
             <SectionTitle 
               title="Product Categories" 
               subtitle="Expert inspection services across diverse product categories"

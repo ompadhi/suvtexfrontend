@@ -7,9 +7,9 @@ import About from './pages/About'
 import Services from './pages/Services'
 import ExpertTeam from './pages/ExpertTeam'
 import Products from './pages/Products'
-import Contact from './pages/Contact'
 import Sourcing from './pages/Sourcing'
-import Donation from './pages/Donation'
+import SocialService from './pages/SocialService'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <Route path="/expert-team" element={<ExpertTeam />} />
             <Route path="/products" element={<Products />} />
             <Route path="/sourcing" element={<Sourcing />} />
-            <Route path="/donation" element={<Donation />} />
+            <Route path="/social-service" element={<SocialService/>} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

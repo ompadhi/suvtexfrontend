@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import { footerLinks } from '@/data/content'
+import contactBg from '@/assets/BACKGROUND/CONTACT US.png'
 
 function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -80,19 +81,19 @@ export default function Contact() {
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=600&fit=crop')`,
+            backgroundImage: `url(${contactBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/90 via-suvtex-charcoal/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/50 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
-          <SectionLabel text="Get In Touch" variant="light" className="mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <SectionLabel text="Get In Touch" variant="light" className="mb-6 drop-shadow-md" />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             Contact <span className="text-gradient">Us</span>
           </h1>
-          <p className="text-white/70 max-w-2xl text-lg">
+          <p className="text-white font-bold max-w-2xl text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Get in touch with us for all your inspection and quality assurance needs
           </p>
         </div>

@@ -3,6 +3,7 @@ import { Users, Award, GraduationCap, Wrench } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
 import TeamCard from '@/components/ui-custom/TeamCard'
+import expertTeamBg from '@/assets/BACKGROUND/EXPERT TEAM.png'
 
 // Import technologist images
 import footwearImg from '@/assets/Our Technologists/FOOTWEAR.png'
@@ -18,7 +19,7 @@ import isoLogo from '@/assets/ISO LOGO.png'
 import sa8000Logo from '@/assets/sa 8000.png'
 import leanSigmaLogo from '@/assets/lean six sigma black belt.jpeg'
 
-function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+function ScrollReveal({ children, className = '', delay = 0, id }: { children: React.ReactNode, className?: string, delay?: number, id?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -41,16 +42,18 @@ function ScrollReveal({ children, className = '', delay = 0 }: { children: React
   }, [])
 
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-smooth ${className}`}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transitionDelay: `${delay}ms`
-      }}
-    >
-      {children}
+    <div id={id} className={className}>
+      <div
+        ref={ref}
+        className="transition-all duration-700 ease-smooth"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transitionDelay: `${delay}ms`
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
@@ -58,26 +61,31 @@ function ScrollReveal({ children, className = '', delay = 0 }: { children: React
 export default function ExpertTeam() {
   const allTechnologists = [
     {
+      id: 'textiles',
       title: 'Textiles Technologists',
       description: 'These specialists ensure the highest quality fabrics, considering factors like durability, comfort, and performance.',
       image: textileImg,
     },
     {
+      id: 'leather',
       title: 'Leather Technologists',
       description: 'Our leather experts source and work with the finest materials, guaranteeing a luxurious and long-lasting product.',
       image: leatherImg,
     },
     {
+      id: 'plastics',
       title: 'Plastics Technologists',
       description: 'They ensure the perfect balance of strength, flexibility, and sustainability in our plastic components.',
       image: plasticImg,
     },
     {
+      id: 'utensils',
       title: 'Utensils Technologists',
       description: 'Metals Technologists: Our metals experts select and treat metals for optimal durability, weight, and functionality.',
       image: utensilsImg,
     },
     {
+      id: 'non-stick',
       title: 'Non-Stick Ware Technologists',
       description: 'Our non-stick ware experts ensure the quality and safety of cookware products, testing for durability and performance.',
       image: nonStickImg,
@@ -109,19 +117,19 @@ export default function ExpertTeam() {
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=600&fit=crop')`,
+            backgroundImage: `url(${expertTeamBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/90 via-suvtex-charcoal/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/50 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
-          <SectionLabel text="Our People" variant="light" className="mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <SectionLabel text="Our People" variant="light" className="mb-6 drop-shadow-md" />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             Expert <span className="text-gradient">Team</span>
           </h1>
-          <p className="text-white/70 max-w-2xl text-lg">
+          <p className="text-white font-bold max-w-2xl text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Meet our team of highly skilled technologists dedicated to ensuring quality
           </p>
         </div>
@@ -179,7 +187,7 @@ export default function ExpertTeam() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {allTechnologists.map((member, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
+              <ScrollReveal key={index} delay={index * 100} id={member.id} className="scroll-mt-32">
                 <TeamCard
                   title={member.title}
                   description={member.description}

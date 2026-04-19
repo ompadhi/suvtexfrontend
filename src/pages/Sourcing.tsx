@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
-import sourcingHero from '@/assets/sourcing image.png'
+import sourcingBg from '@/assets/BACKGROUND/SOURCING.png'
 import sourcingAdvantage from '@/assets/sourcing 2.png'
 
 // ─── Scroll Reveal (same pattern used across the site) ───────────────────────
@@ -114,26 +114,25 @@ const methodologySteps = [
 export default function Sourcing() {
   return (
     <div className="pt-28 pb-8">
-      {/* ─── Hero Section ─────────────────────────────────────────── */}
-      <section className="relative h-[400px] flex items-center overflow-hidden">
+      {/* Hero Banner */}
+      <section className="relative h-[450px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${sourcingHero})`,
+            backgroundImage: `url(${sourcingBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal via-suvtex-charcoal/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/50 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         
         <div className="relative z-10 container-premium">
           <ScrollReveal className="max-w-3xl">
-            <SectionLabel text="Strategic Sourcing" variant="light" className="mb-6" />
-            <h1 className="text-3xl md:text-3xl lg:text-3xl font-bold text-white leading-tight mb-6">
-              Global Supply Chain <br />
-              <span className="text-gradient">Simplified.</span>
+            <SectionLabel text="Global Sourcing" variant="light" className="mb-6 drop-shadow-md" />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              Strategic <span className="text-gradient">Sourcing</span>
             </h1>
-            <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl">
-              Suvtex India bridges the gap between international brands and reliable Indian manufacturing. We provide comprehensive sourcing solutions focused on transparency, quality, and operational excellence.
+            <p className="text-white font-bold max-w-2xl text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Connecting global buyers with India's finest manufacturers while ensuring quality and compliance at every step.
             </p>
           </ScrollReveal>
         </div>

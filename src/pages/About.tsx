@@ -6,9 +6,10 @@ import SectionTitle from '@/components/ui-custom/SectionTitle'
 import FeatureCard from '@/components/ui-custom/FeatureCard'
 import ValueCard from '@/components/ui-custom/ValueCard'
 import satyavanAbout from '../assets/satyavan_about.png'
+import aboutBg from '../assets/BACKGROUND/ABOUT US.png'
 import { hardlineProducts, softlineProducts, values, priorities } from '@/data/content'
 
-function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+function ScrollReveal({ children, className = '', delay = 0, id }: { children: React.ReactNode, className?: string, delay?: number, id?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -31,16 +32,18 @@ function ScrollReveal({ children, className = '', delay = 0 }: { children: React
   }, [])
 
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-smooth ${className}`}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transitionDelay: `${delay}ms`
-      }}
-    >
-      {children}
+    <div id={id} className={className}>
+      <div
+        ref={ref}
+        className="transition-all duration-700 ease-smooth"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transitionDelay: `${delay}ms`
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
@@ -51,19 +54,19 @@ export default function About() {
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=600&fit=crop')`,
+            backgroundImage: `url(${aboutBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/90 via-suvtex-charcoal/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/50 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
-          <SectionLabel text="About Us" variant="light" className="mb-4" />
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <SectionLabel text="About Us" variant="light" className="mb-4 drop-shadow-md" />
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             About <span className="text-gradient">Suvtex India</span>
           </h1>
-          <p className="text-white/70 mt-4 max-w-2xl text-base md:text-lg">
+          <p className="text-white font-semibold mt-4 max-w-2xl text-base md:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Your trusted partner for quality inspection and assurance services
           </p>
         </div>
@@ -121,7 +124,7 @@ export default function About() {
       </section>
 
       {/* Features Grid */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <section id="why-choose-us" className="section-padding bg-gradient-to-br from-gray-50 to-white scroll-mt-36">
         <div className="container-premium">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel text="Why Us" className="mb-4" />
@@ -178,11 +181,12 @@ export default function About() {
       </section>
 
       {/* ─── VALUES, VISION & MISSION ──────────────────────────────── */}
-      <section className="section-padding bg-white border-t border-gray-100">
+      <section id="values-vision-mission" className="section-padding bg-white border-t border-gray-100 scroll-mt-36">
         <div className="container-premium">
           <ScrollReveal className="text-center mb-16">
-            <SectionLabel text="Our Values" className="mb-4" />
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <SectionLabel text="Our Values" className="mb-4 justify-center" />
+            <SectionTitle title="Our Values" align="center" />
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg mt-4">
               Our values inspire us to work hard with honesty and also provide direction to move forward.
             </p>
           </ScrollReveal>
@@ -200,7 +204,7 @@ export default function About() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div id="vision-mission" className="grid md:grid-cols-2 gap-8 mb-16 scroll-mt-36">
             <ScrollReveal>
               <div className="bg-gradient-to-br from-suvtex-charcoal to-suvtex-slate rounded-3xl p-8 md:p-10 text-white h-full">
                 <div className="w-14 h-14 rounded-xl bg-suvtex-orange/20 flex items-center justify-center mb-6">
@@ -226,10 +230,10 @@ export default function About() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <SectionLabel text="Our Priorities" className="mb-4" />
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">What Drives Us Forward</h3>
+          <ScrollReveal id="priorities" className="scroll-mt-40">
+            <div className="text-center mb-16">
+              <SectionLabel text="Our Priorities" className="mb-4 justify-center" />
+              <SectionTitle title="Our Priorities - What Drives Us Forward" align="center" />
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {priorities.map((priority, index) => (

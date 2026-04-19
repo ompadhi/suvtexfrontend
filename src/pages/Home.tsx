@@ -19,7 +19,6 @@ import SectionTitle from '@/components/ui-custom/SectionTitle'
 import ServiceCard from '@/components/ui-custom/ServiceCard'
 import LogoMarquee from '@/components/ui-custom/LogoMarquee'
 import {
-  quickLinks,
   factoryAuditServices,
   productServices,
 } from '@/data/content'
@@ -45,19 +44,21 @@ function useScrollReveal() {
   return { ref, isVisible }
 }
 
-function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+function ScrollReveal({ children, className = '', delay = 0, id }: { children: React.ReactNode, className?: string, delay?: number, id?: string }) {
   const { ref, isVisible } = useScrollReveal()
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-smooth ${className}`}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transitionDelay: `${delay}ms`
-      }}
-    >
-      {children}
+    <div id={id} className={className}>
+      <div
+        ref={ref}
+        className="transition-all duration-700 ease-smooth"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transitionDelay: `${delay}ms`
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
@@ -77,8 +78,8 @@ export default function Home() {
 
         <div className="absolute inset-0">
           <img src={parliament} alt="Parliament" className="absolute inset-0 w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-[1200px] mx-auto mt-[100px] pt-28 pb-24">
@@ -111,20 +112,20 @@ export default function Home() {
             </div>
 
             <h1
-              className={`text-lg md:text-5xl lg:text-[42px] font-bold text-white leading-tight drop-shadow-xl transition-all duration-700 delay-100 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transition-all duration-700 delay-100 ${
                 isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               Welcome to{" "}
                <span className="text-gradient drop-shadow-none">SUVTEX</span> India
-              <span className="block text-xl md:text-2xl font-semibold text-white/90 mt-4 tracking-wide">
+              <span className="block text-xl md:text-2xl font-semibold text-white mt-4 tracking-wide drop-shadow-lg">
                 Your Trusted Inspection Partner
               </span>
             </h1>
 
             <div className="space-y-4 max-w-2xl">
               <p
-                className={`text-white/80 text-lg md:text-xl leading-relaxed font-medium drop-shadow-lg transition-all duration-700 delay-200 ${
+                className={`text-white text-lg md:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-200 ${
                   isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
@@ -132,7 +133,7 @@ export default function Home() {
               </p>
 
               <p
-                className={`text-white/80 text-lg md:text-xl leading-relaxed font-medium drop-shadow-lg transition-all duration-700 delay-300 ${
+                className={`text-white text-lg md:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-300 ${
                   isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
@@ -229,14 +230,19 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft">
                     <Shield className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">ABOUT US</h3>
+                  <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wider">About SUVTEX</h3>
                 </div>
                 <ul className="space-y-4">
-                  {quickLinks.aboutUs.map((item, index) => (
+                  {[
+                    { name: 'Why Choose Suvtex India?', path: '/about#why-choose-us' },
+                    { name: 'Our Values', path: '/about#values-vision-mission' },
+                    { name: 'Our Vision / Mission', path: '/about#vision-mission' },
+                    { name: 'Our Priorities', path: '/about#priorities' },
+                  ].map((item, index) => (
                     <li key={index}>
-                      <Link to="/about" className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
                         <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
-                        {item}
+                        {item.name}
                       </Link>
                     </li>
                   ))}
@@ -251,11 +257,17 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900">EXPERT TEAM</h3>
                 </div>
                 <ul className="space-y-4">
-                  {quickLinks.expertTeam.map((item, index) => (
+                  {[
+                    { name: 'Textiles Technologists', path: '/expert-team#textiles' },
+                    { name: 'Leather Technologists', path: '/expert-team#leather' },
+                    { name: 'Utensils Technologists', path: '/expert-team#utensils' },
+                    { name: 'Plastics Technologists', path: '/expert-team#plastics' },
+                    { name: 'Non stick ware Technologists', path: '/expert-team#non-stick' },
+                  ].map((item, index) => (
                     <li key={index}>
-                      <Link to="/expert-team" className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
                         <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
-                        {item}
+                        {item.name}
                       </Link>
                     </li>
                   ))}
@@ -267,14 +279,20 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft">
                     <Award className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">EXPERTISE</h3>
+                  <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wider">Expertise</h3>
                 </div>
                 <ul className="space-y-4">
-                  {quickLinks.expertise.map((item, index) => (
+                  {[
+                    { name: 'Product Categories', path: '/products' },
+                    { name: 'Strategic Sourcing Solutions', path: '/sourcing' },
+                    { name: 'ISO Based Factory Audit Services', path: '/services#factory-audits' },
+                    { name: 'Product Services', path: '/services#product-services' },
+                    { name: 'Consultancy Services', path: '/services#consultancy' },
+                  ].map((item, index) => (
                     <li key={index}>
-                      <Link to="/products" className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
                         <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
-                        {item}
+                        {item.name}
                       </Link>
                     </li>
                   ))}
@@ -302,28 +320,53 @@ export default function Home() {
 
           <ScrollReveal delay={100}>
             <div className="mb-12">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="decorative-line"></div>
-                <h3 className="text-2xl font-bold text-gray-900">ISO Based Factory Audit Services</h3>
-              </div>
+              <Link 
+                to="/services#factory-audits" 
+                className="flex items-center gap-4 mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
+              >
+                <div className="decorative-line group-hover/title:w-16 transition-all duration-500"></div>
+                <h3 className="text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors">
+                  ISO Based Factory Audit Services
+                </h3>
+                <ArrowRight className="w-5 h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300" />
+              </Link>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {factoryAuditServices.map((service, index) => {
-                  const Icon = service.icon
-                  return <ServiceCard key={index} title={service.title} description={service.description} icon={Icon} />
-                })}
+                {factoryAuditServices.map((service, index) => (
+                  <ScrollReveal key={index} delay={index * 100}>
+                    <ServiceCard 
+                      title={service.title} 
+                      description={service.description} 
+                      icon={service.icon} 
+                      to={`/services#audit-${index}`} 
+                    />
+                  </ScrollReveal>
+                ))}
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="decorative-line"></div>
-                <h3 className="text-2xl font-bold text-gray-900">Product Services</h3>
-              </div>
+              <Link 
+                to="/services#product-services" 
+                className="flex items-center gap-4 mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
+              >
+                <div className="decorative-line group-hover/title:w-16 transition-all duration-500"></div>
+                <h3 className="text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors">
+                  Product Services
+                </h3>
+                <ArrowRight className="w-5 h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300" />
+              </Link>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {productServices.slice(0, 4).map((service, index) => (
-                  <ServiceCard key={index} title={service.title} description={service.description} icon={CheckCircle2} />
+                  <ScrollReveal key={index} delay={index * 100}>
+                    <ServiceCard 
+                      title={service.title} 
+                      description={service.description} 
+                      icon={service.icon} 
+                      to={`/services#product-${index}`} 
+                    />
+                  </ScrollReveal>
                 ))}
               </div>
               <div className="mt-10 text-center">

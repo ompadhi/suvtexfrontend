@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import type { ElementType } from 'react'
 
 interface ServiceCardProps {
@@ -6,7 +7,7 @@ interface ServiceCardProps {
   description: string
   icon?: ElementType
   className?: string
-  href?: string
+  to?: string
 }
 
 export default function ServiceCard({ 
@@ -14,11 +15,11 @@ export default function ServiceCard({
   description, 
   icon: Icon,
   className = '',
-  href = '#'
+  to = '#'
 }: ServiceCardProps) {
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
       className={`group relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 block transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-suvtex-orange/20 ${className}`}
     >
       {/* Icon */}
@@ -38,6 +39,6 @@ export default function ServiceCard({
       <p className="text-gray-600 text-sm leading-relaxed">
         {description}
       </p>
-    </a>
+    </Link>
   )
 }

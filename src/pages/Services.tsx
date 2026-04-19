@@ -4,24 +4,15 @@ import {
   ArrowRight, 
   Factory, 
   ClipboardCheck, 
-  Users, 
-  Shield, 
-  Leaf, 
-  Wrench, 
-  Lock,
-  TrendingUp,
-  CheckCircle2,
-  FileCheck,
-  Search,
-  Eye
+  Users
 } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
 import ServiceCard from '@/components/ui-custom/ServiceCard'
-import servicesHero from '@/assets/services.png'
-import { factoryAuditServices, productServices } from '@/data/content'
+import servicesBg from '@/assets/BACKGROUND/SERVICES.png'
+import { factoryAuditServices, productServices, auditTypes } from '@/data/content'
 
-function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -33,61 +24,61 @@ function ScrollReveal({ children, className = '', delay = 0 }: { children: React
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
+    if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
+  return { ref, isVisible }
+}
+
+function ScrollReveal({ children, className = '', delay = 0, id }: { children: React.ReactNode, className?: string, delay?: number, id?: string }) {
+  const { ref, isVisible } = useScrollReveal()
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-smooth ${className}`}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transitionDelay: `${delay}ms`
-      }}
-    >
-      {children}
+    <div id={id} className={className}>
+      <div
+        ref={ref}
+        className="transition-all duration-700 ease-smooth"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transitionDelay: `${delay}ms`
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
 
 export default function Services() {
-  const auditIcons = [Users, Leaf, Wrench, Lock]
-  const productIcons = [ClipboardCheck, FileCheck, Search, Eye, CheckCircle2, Shield, Factory, TrendingUp]
-
   return (
     <div className="pt-28 pb-8">
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${servicesHero})`,
+            backgroundImage: `url(${servicesBg})`,
           }}
         >
-          <div className="absolute inset-0 bg-suvtex-charcoal/60"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/80 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-suvtex-charcoal/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/40 via-transparent to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
           <SectionLabel text="What We Offer" variant="light" className="mb-6 drop-shadow-md" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             <span className="text-gradient">Services</span>
           </h1>
-          <p className="text-white font-medium max-w-2xl text-lg drop-shadow-lg">
+          <p className="text-white font-bold max-w-2xl text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Comprehensive inspection and audit solutions for your quality assurance needs
           </p>
         </div>
       </section>
 
       {/* Factory Audit Services */}
-      <section className="section-padding bg-white">
+      <section id="factory-audits" className="section-padding bg-white scroll-mt-28">
         <div className="container-premium">
           <ScrollReveal className="mb-12">
             <div className="flex items-center gap-4 mb-4">
@@ -106,11 +97,11 @@ export default function Services() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {factoryAuditServices.map((service, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
+              <ScrollReveal key={index} delay={index * 100} id={`audit-${index}`} className="scroll-mt-32">
                 <ServiceCard
                   title={service.title}
                   description={service.description}
-                  icon={auditIcons[index]} // Pass the component type directly
+                  icon={service.icon} // Pass the icon directly from service data
                 />
               </ScrollReveal>
             ))}
@@ -119,7 +110,7 @@ export default function Services() {
       </section>
 
       {/* Product Services */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <section id="product-services" className="section-padding bg-gradient-to-br from-gray-50 to-white scroll-mt-28">
         <div className="container-premium">
           <ScrollReveal className="mb-12">
             <div className="flex items-center gap-4 mb-4">
@@ -137,24 +128,21 @@ export default function Services() {
           </ScrollReveal>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {productServices.map((service, index) => {
-              const Icon = productIcons[index % productIcons.length]
-              return (
-                <ScrollReveal key={index} delay={index * 50}>
-                  <ServiceCard
-                    title={service.title}
-                    description={service.description}
-                    icon={Icon} // pass the component itself
-                  />
-                </ScrollReveal>
-              )
-            })}
+            {productServices.map((service, index) => (
+              <ScrollReveal key={index} delay={index * 50} id={`product-${index}`} className="scroll-mt-32">
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                  icon={service.icon} // pass the component itself
+                />
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Consultancy Services */}
-      <section className="section-padding bg-white">
+      <section id="consultancy" className="section-padding bg-white scroll-mt-28">
         <div className="container-premium">
           <ScrollReveal className="text-center mb-12">
             <SectionLabel text="Additional Services" className="mb-4" />
@@ -205,13 +193,7 @@ export default function Services() {
           </ScrollReveal>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              { title: 'Factory Audit', icon: Factory },
-              { title: 'Social Compliance', icon: Users },
-              { title: 'Environmental', icon: Leaf },
-              { title: 'Technical', icon: Wrench },
-              { title: 'Security', icon: Lock },
-            ].map((audit, index) => (
+            {auditTypes.map((audit, index) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <div className="bg-white rounded-2xl p-6 text-center border border-gray-100 hover:border-suvtex-orange/30 hover:shadow-soft hover:-translate-y-1 transition-all duration-300 group">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-suvtex-orange/10 to-suvtex-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:from-suvtex-orange group-hover:to-suvtex-gold transition-all duration-500">
