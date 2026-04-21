@@ -61,13 +61,14 @@ function Lightbox({ item, onClose }: { item: LightboxItem; onClose: () => void }
           <X className="w-5 h-5" />
         </button>
 
-        {/* Full-size image */}
-        <img
-          src={item.image.replace('w=400&h=300', 'w=1200&h=800')}
-          alt={item.title}
-          className="w-full object-cover"
-          style={{ maxHeight: '65vh' }}
-        />
+        {/* Full-size image container */}
+        <div className="bg-gray-50 flex items-center justify-center p-8 md:p-12 lg:p-16" style={{ height: '75vh' }}>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl rounded-2xl bg-white p-4"
+          />
+        </div>
 
         {/* Info panel */}
         <div className="p-6">
@@ -170,11 +171,11 @@ export default function Products() {
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-suvtex-orange/40 hover:shadow-hover hover:-translate-y-2 transition-all duration-300 cursor-zoom-in"
                   onClick={() => setLightbox(category)}
                 >
-                  <div className="aspect-[4/3] overflow-hidden relative">
+                  <div className="aspect-[4/3] overflow-hidden relative bg-gray-50 flex items-center justify-center p-4">
                     <img
                       src={category.image}
                       alt={category.title}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.3]"
+                      className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-110 shadow-sm rounded-lg"
                     />
                     {/* Dark overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/45 transition-all duration-300" />

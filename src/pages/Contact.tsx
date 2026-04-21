@@ -3,6 +3,7 @@ import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, MessageSquare } from 'l
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import { footerLinks } from '@/data/content'
 import contactBg from '@/assets/BACKGROUND/CONTACT US.png'
+import contactUsImg from '@/assets/contact us suvtex.png'
 
 function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -118,13 +119,13 @@ export default function Contact() {
               {
                 icon: Phone,
                 title: 'Phone',
-                content: '+91 8108140336',
+                content: '+91 8108140336 / 7977810455',
                 link: 'tel:+918108140336',
               },
               {
                 icon: Clock,
                 title: 'Working Hours',
-                content: 'Mon - Sat: 9:00 AM - 6:00 PM',
+                content: 'Everyday: 9:00 AM – 6:00 PM (IST)',
               },
             ].map((item, index) => (
               <ScrollReveal key={index} delay={index * 100}>
@@ -156,31 +157,12 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
             {/* Left Content */}
             <ScrollReveal>
-              <div className="relative h-full min-h-[350px] rounded-3xl overflow-hidden">
+              <div className="relative h-full min-h-[350px] rounded-3xl overflow-hidden bg-white flex items-center justify-center p-4">
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1000&fit=crop"
+                  src={contactUsImg}
                   alt="Contact Us"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-suvtex-charcoal/90 via-suvtex-charcoal/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="w-14 h-14 rounded-xl bg-suvtex-orange flex items-center justify-center mb-6">
-                    <MessageSquare className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-4">Let's Talk</h3>
-                  <p className="text-white/80 mb-8">
-                    Have questions about our inspection services? We're here to help you ensure the highest quality standards for your products.
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-white/60 text-sm">Call us at</p>
-                      <p className="text-white font-semibold">+91 98765 43210</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
 

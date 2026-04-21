@@ -121,7 +121,7 @@ export default function Footer() {
                   <Phone className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
                 </div>
                 <span className="text-gray-400 text-sm group-hover:text-white transition-colors">
-                  +91 8108140336
+                  +91 8108140336 / 7977810455
                 </span>
               </a>
             </div>

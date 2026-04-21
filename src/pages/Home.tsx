@@ -142,19 +142,16 @@ export default function Home() {
             </div>
 
             <div
-              className={`flex flex-col sm:flex-row gap-4 pt-2 transition-all duration-700 delay-[400ms] ${
+              className={`flex flex-wrap gap-4 transition-all duration-700 delay-500 ${
                 isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <Link to="/contact" className="btn-primary group">
-                Get Free Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
               <Link 
                 to="/services" 
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/20 hover:bg-white hover:text-suvtex-charcoal hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300"
+                className="btn-primary group"
               >
-                Explore Services
+                Explore Our Services
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
@@ -200,17 +197,6 @@ export default function Home() {
                   alt="Quality Inspection" 
                   className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-video lg:aspect-auto" 
                 />
-                
-                {/* Experience Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 flex items-center gap-4 animate-float">
-                  <div className="w-14 h-14 rounded-xl bg-suvtex-orange flex items-center justify-center text-white shadow-lg shadow-suvtex-orange/30">
-                    <CheckCircle2 className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-gray-900">15+</div>
-                    <div className="text-gray-500 text-sm font-medium">Years Experience</div>
-                  </div>
-                </div>
               </div>
               
               {/* Decorative elements */}
@@ -425,7 +411,7 @@ export default function Home() {
                     <div>
                       <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Visit Our Office</h4>
                       <p className="text-lg font-bold text-gray-900 leading-snug">Mumbai, India</p>
-                      <p className="text-gray-500 mt-1">Total Independent 3rd Party Quality Control</p>
+                      <p className="text-gray-500 mt-1">Total Independent Third Party Quality Control</p>
                     </div>
                   </div>
                 </div>
