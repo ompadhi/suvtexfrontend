@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import { footerLinks } from '@/data/content'
-import contactBg from '@/assets/BACKGROUND/CONTACT US.png'
-import contactUsImg from '@/assets/contact us suvtex.png'
+import contactBg from '@/assets/BACKGROUND/CONTACT US.webp'
+import contactUsImg from '@/assets/contact us suvtex.webp'
 
 function ScrollReveal({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)

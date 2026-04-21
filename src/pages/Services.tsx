@@ -56,7 +56,7 @@ export default function Services() {
   return (
     <div className="pt-28 pb-8">
       {/* Hero Banner */}
-      <section className="relative h-[400px] flex items-center overflow-hidden">
+      <section className="relative h-[450px] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -64,16 +64,19 @@ export default function Services() {
           }}
         >
           <div className="absolute inset-0 bg-suvtex-charcoal/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/40 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-suvtex-charcoal/30 via-transparent to-suvtex-charcoal/30"></div>
         </div>
-        <div className="relative z-10 container-premium">
-          <SectionLabel text="What We Offer" variant="light" className="mb-6 drop-shadow-md" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-            <span className="text-gradient">Services</span>
-          </h1>
-          <p className="text-white font-bold max-w-2xl text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Comprehensive inspection and audit solutions for your quality assurance needs
-          </p>
+        <div className="relative z-10 container-premium text-center">
+          <ScrollReveal>
+            <SectionLabel text="What We Offer" variant="light" className="mb-6 mx-auto justify-center drop-shadow-md" />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              Our <span className="text-gradient">Services</span>
+            </h1>
+            <p className="text-white font-bold max-w-3xl mx-auto text-xl md:text-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Comprehensive inspection and audit solutions <br className="hidden md:block" /> 
+              tailored for your quality assurance needs.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

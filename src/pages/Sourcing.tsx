@@ -14,8 +14,8 @@ import {
 } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
-import sourcingBg from '@/assets/BACKGROUND/SOURCING.png'
-import sourcingAdvantage from '@/assets/sourcing 2.png'
+import sourcingBg from '@/assets/BACKGROUND/SOURCING.webp'
+import sourcingAdvantage from '@/assets/sourcing 2.webp'
 
 // ─── Scroll Reveal (same pattern used across the site) ───────────────────────
 function ScrollReveal({

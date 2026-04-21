@@ -57,23 +57,23 @@ export const auditTypes = [
   { title: 'Security', icon: Lock },
 ];
 
-import furnitureHomeDecor from '../assets/Furniture and home decor.png';
+import furnitureHomeDecor from '../assets/Furniture and home decor.webp';
 
 // Product Inspection Category Images
-import mensWearImg from '../assets/Product Inspection Categories/MENS WEAR.png';
-import womensWearImg from '../assets/Product Inspection Categories/WOMENS WEAR.png';
-import kidsWearImg from '../assets/Product Inspection Categories/KIDS WEAR.png';
-import infantWearImg from '../assets/Product Inspection Categories/INFANT WEAR.png';
-import intimateWearImg from '../assets/Product Inspection Categories/Intimate Wear & Innerwear.png';
-import homeTextileImg from '../assets/Product Inspection Categories/Home Textile Products.png';
-import generalMerchandiseImg from '../assets/Product Inspection Categories/General Merchandise & Accessories.png';
-import leatherProductsImg from '../assets/Product Inspection Categories/Leather Products.png';
-import footwearProductsImg from '../assets/Product Inspection Categories/Footwear Products.png';
-import kitchenwareImg from '../assets/Product Inspection Categories/Kitchenware, Cookware & Home Utility.png';
-import toysGamesImg from '../assets/Product Inspection Categories/Toys, Games & Baby Products.png';
-import fashionJewelleryImg from '../assets/Product Inspection Categories/Fashion Jwellery.png';
-import petProductsImg from '../assets/Product Inspection Categories/Pet Products.png';
-import industrialProductsImg from '../assets/Product Inspection Categories/Industrial & Technical Products.png';
+import mensWearImg from '../assets/Product Inspection Categories/MENS WEAR.webp';
+import womensWearImg from '../assets/Product Inspection Categories/WOMENS WEAR.webp';
+import kidsWearImg from '../assets/Product Inspection Categories/KIDS WEAR.webp';
+import infantWearImg from '../assets/Product Inspection Categories/INFANT WEAR.webp';
+import intimateWearImg from '../assets/Product Inspection Categories/Intimate Wear & Innerwear.webp';
+import homeTextileImg from '../assets/Product Inspection Categories/Home Textile Products.webp';
+import generalMerchandiseImg from '../assets/Product Inspection Categories/General Merchandise & Accessories.webp';
+import leatherProductsImg from '../assets/Product Inspection Categories/Leather Products.webp';
+import footwearProductsImg from '../assets/Product Inspection Categories/Footwear Products.webp';
+import kitchenwareImg from '../assets/Product Inspection Categories/Kitchenware, Cookware & Home Utility.webp';
+import toysGamesImg from '../assets/Product Inspection Categories/Toys, Games & Baby Products.webp';
+import fashionJewelleryImg from '../assets/Product Inspection Categories/Fashion Jwellery.webp';
+import petProductsImg from '../assets/Product Inspection Categories/Pet Products.webp';
+import industrialProductsImg from '../assets/Product Inspection Categories/Industrial & Technical Products.webp';
 
 // ... (rest of the file)
 
@@ -230,7 +230,7 @@ export const teamMembers = [
 
 // Product categories
 export const productCategories = [
-  { name: 'Home Decor', image: furnitureHomeDecor }, // Local image: Furniture and home decor.png
+  { name: 'Home Decor', image: furnitureHomeDecor }, // Local image: Furniture and home decor.webp
   { name: 'Textile', image: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=300&fit=crop' },
   { name: 'Fashion Apparels', image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&h=300&fit=crop' },
   { name: 'Hardline', image: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400&h=300&fit=crop' },

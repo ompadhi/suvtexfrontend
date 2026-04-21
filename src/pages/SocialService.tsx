@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
-import ngoBg from '@/assets/BACKGROUND/NGO.png'
+import ngoBg from '@/assets/BACKGROUND/NGO.webp'
 import { 
   Phone, 
   MapPin, 

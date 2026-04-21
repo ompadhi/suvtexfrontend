@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Target, Award, Shield, X, ZoomIn } from 'luci
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
 import { hardlineProducts, softlineProducts, detailedProductCategories } from '@/data/content'
-import productsBg from '@/assets/BACKGROUND/PRODUCTS.png'
+import productsBg from '@/assets/BACKGROUND/PRODUCTS.webp'
 
 type LightboxItem = {
   image: string
