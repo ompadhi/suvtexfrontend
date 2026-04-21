@@ -46,7 +46,7 @@ export default function Header() {
               <img
                 src={isTransparent ? logoWhite : logoBlack}
                 alt="SUVTEX India"
-                className={`h-22 md:h-[80px] w-auto object-contain transition-all duration-500 group-hover:scale-105 ${
+                className={`md:h-[80px] h-[60px] w-auto object-contain transition-all duration-500 group-hover:scale-105 ${
                   isTransparent ? 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]' : ''
                 }`}
               />
@@ -127,11 +127,14 @@ export default function Header() {
           }`}
         >
           {/* Panel header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-            <img src={logoBlack} alt="SUVTEX India" className="h-10 md:h-12 w-auto object-contain" />
+          <div className="flex items-start justify-between px-6 py-5 border-b border-gray-100">
+            <Link to="/" className="flex flex-col">
+              <img src={logoBlack} alt="SUVTEX India" className="h-12 w-auto object-contain" />
+              <span className="text-[0.65rem] font-bold text-black mt-1 leading-tight">Sustainable.Unbiased.Verified</span>
+            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors mt-1"
             >
               <X className="w-5 h-5" />
             </button>

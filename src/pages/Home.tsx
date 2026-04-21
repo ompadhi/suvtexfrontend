@@ -12,12 +12,15 @@ import {
   Users,
   Phone,
   Mail,
-  MapPin
+  MapPin,
+  Loader2
 } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
 import ServiceCard from '@/components/ui-custom/ServiceCard'
 import LogoMarquee from '@/components/ui-custom/LogoMarquee'
+import emailjs from '@emailjs/browser'
+import { toast } from 'sonner'
 import {
   factoryAuditServices,
   productServices,
@@ -65,10 +68,70 @@ function ScrollReveal({ children, className = '', delay = 0, id }: { children: R
 
 export default function Home() {
   const [isHeroLoaded, setIsHeroLoaded] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    consent: false,
+  })
 
   useEffect(() => {
     setIsHeroLoaded(true)
   }, [])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!formData.consent) {
+      toast.error('Please agree to receive communications.')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        to_name: 'Suvtex Admin',
+      }
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+
+      toast.success('Message sent successfully!')
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        consent: false,
+      })
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      toast.error('Failed to send message. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="min-h-screen">
@@ -428,40 +491,99 @@ export default function Home() {
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
                     <p className="text-gray-500 mb-10">Fill out the form below and we'll get back to you within 24 hours.</p>
                     
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">First Name <span className="text-suvtex-orange">*</span></label>
-                          <input type="text" placeholder="John" className="input-premium" />
+                          <input 
+                            type="text" 
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            placeholder="John" 
+                            required 
+                            className="input-premium" 
+                          />
                         </div>
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Last Name <span className="text-suvtex-orange">*</span></label>
-                          <input type="text" placeholder="Smith" className="input-premium" />
+                          <input 
+                            type="text" 
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            placeholder="Smith" 
+                            required 
+                            className="input-premium" 
+                          />
                         </div>
                       </div>
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Email <span className="text-suvtex-orange">*</span></label>
-                          <input type="email" placeholder="john@example.com" className="input-premium" />
+                          <input 
+                            type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="john@example.com" 
+                            required 
+                            className="input-premium" 
+                          />
                         </div>
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Whatsapp Number <span className="text-suvtex-orange">*</span></label>
-                          <input type="tel" placeholder="+91 00000 00000" className="input-premium" />
+                          <input 
+                            type="tel" 
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+91 00000 00000" 
+                            required 
+                            className="input-premium" 
+                          />
                         </div>
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Message</label>
-                        <textarea rows={4} placeholder="How can we help you?" className="input-premium resize-none"></textarea>
+                        <textarea 
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={4} 
+                          placeholder="How can we help you?" 
+                          className="input-premium resize-none"
+                        ></textarea>
                       </div>
                       <div className="flex items-center gap-3 py-2">
-                        <input type="checkbox" id="consent" className="w-5 h-5 rounded-md border-gray-300 text-suvtex-orange focus:ring-suvtex-orange cursor-pointer" />
-                        <label htmlFor="consent" className="text-sm text-gray-600 cursor-pointer select-none">
+                        <input 
+                          type="checkbox" 
+                          name="consent"
+                          id="home-consent" 
+                          checked={formData.consent}
+                          onChange={handleChange}
+                          className="w-5 h-5 rounded-md border-gray-300 text-suvtex-orange focus:ring-suvtex-orange cursor-pointer" 
+                        />
+                        <label htmlFor="home-consent" className="text-sm text-gray-600 cursor-pointer select-none">
                           I agree to receive communications from SUVTEX about quality services.
                         </label>
                       </div>
-                      <button type="submit" className="btn-primary w-full justify-center text-lg py-5 group">
-                        Send Your Message 
-                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="btn-primary w-full justify-center text-lg py-5 group disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-6 h-6 animate-spin mr-2" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Your Message 
+                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
                       </button>
                     </form>
                   </div>
