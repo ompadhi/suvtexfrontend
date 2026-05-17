@@ -29,7 +29,15 @@ export default function Footer() {
             
             {/* Social Links */}
             <div className="flex items-center gap-3">
-              {[Linkedin, Twitter, Facebook, Instagram].map((Icon, index) => (
+              <a
+                href="https://www.linkedin.com/in/satyavan-padhi-146640200/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-suvtex-orange hover:text-white transition-all duration-300"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              {[Twitter, Facebook, Instagram].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
@@ -122,6 +130,20 @@ export default function Footer() {
                 </div>
                 <span className="text-gray-400 text-sm group-hover:text-white transition-colors">
                   +91 8108140336 / 7977810455
+                </span>
+              </a>
+              
+              <a
+                href="https://www.linkedin.com/in/satyavan-padhi-146640200/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange transition-colors duration-300">
+                  <Linkedin className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                </div>
+                <span className="text-gray-400 text-sm group-hover:text-white transition-colors">
+                  Connect on LinkedIn
                 </span>
               </a>
             </div>

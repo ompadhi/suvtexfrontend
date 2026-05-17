@@ -52,7 +52,7 @@ export default function Header() {
                   isTransparent ? 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]' : ''
                 }`}
               />
-              <span className={`text-[1rem] font-bold ${isTransparent ? 'text-[#fff]' : 'text-[#000]'}`}>Sustainable.Unbiased.Verified</span>
+              <span className={`text-[0.85rem] md:text-[0.9rem] font-bold whitespace-nowrap ${isTransparent ? 'text-[#fff]' : 'text-[#0B3C5D]'}`}>Sustainable | Unbiased | Verified</span>
             </Link>
 
             {/* Desktop Nav */}

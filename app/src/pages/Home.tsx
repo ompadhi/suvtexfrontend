@@ -12,7 +12,8 @@ import {
   Phone,
   Mail,
   MapPin,
-  Loader2
+  Loader2,
+  Linkedin
 } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import SectionTitle from '@/components/ui-custom/SectionTitle'
@@ -491,6 +492,21 @@ export default function Home() {
                       <p className="text-gray-500 mt-1">Total Independent Third Party Quality Control</p>
                     </div>
                   </div>
+
+                  <a
+                    href="https://www.linkedin.com/in/satyavan-padhi-146640200/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
+                      <Linkedin className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Connect on LinkedIn</h4>
+                      <p className="text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors">Satyavan Padhi</p>
+                    </div>
+                  </a>
                 </div>
               </ScrollReveal>
             </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, Loader2 } from 'lucide-react'
+import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, Loader2, Linkedin } from 'lucide-react'
 import SectionLabel from '@/components/ui-custom/SectionLabel'
 import { footerLinks } from '@/data/content'
 import contactBg from '@/assets/BACKGROUND/CONTACT US.webp'
@@ -139,7 +139,7 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <section className="py-8 bg-white">
         <div className="container-premium">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               {
                 icon: MapPin,
@@ -159,6 +159,12 @@ export default function Contact() {
                 link: 'tel:+918108140336',
               },
               {
+                icon: Linkedin,
+                title: 'LinkedIn',
+                content: 'Connect with us',
+                link: 'https://www.linkedin.com/in/satyavan-padhi-146640200/',
+              },
+              {
                 icon: Clock,
                 title: 'Working Hours',
                 content: 'Everyday: 9:00 AM – 6:00 PM (IST)',
@@ -173,6 +179,8 @@ export default function Contact() {
                   {item.link ? (
                     <a
                       href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-600 text-sm hover:text-suvtex-orange transition-colors"
                     >
                       {item.content}
