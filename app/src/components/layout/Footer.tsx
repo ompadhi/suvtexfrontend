@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Mail, Phone, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
+import { MapPin, Mail, Phone, Linkedin } from 'lucide-react'
 import { footerLinks } from '@/data/content'
 import logo from '@/assets/SUVTEX WHITE.png'
 
@@ -37,15 +37,6 @@ export default function Footer() {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              {[Twitter, Facebook, Instagram].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-suvtex-orange hover:text-white transition-all duration-300"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
             </div>
           </div>
 

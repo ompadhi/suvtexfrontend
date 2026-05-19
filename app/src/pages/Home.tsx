@@ -251,16 +251,16 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                 About Suvtex
               </div>
-              <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-8 leading-tight">
+              <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4   leading-tight">
                 Your Trusted Partner in Product Quality Inspection & Compliance in Mumbai, India <br />
               </h2>
-              <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-                <p>SUVTEX is a recognized independent Third-Party Quality Inspection Service Provider in Mumbai & across India, fully accredited by ISO 9001, 8001, 14001, 45001.They provide a comprehensive range of Audit & AQL quality Inspection services ensuring products meet the highest standards of quality and safety and compliance.</p>
-                <p>We offer third Party inspection and audit services to assess product quality, ensuring adherence to international standards.</p>
-                <p>Our specialists provide tailored technical solutions for both hardline and Softline products, enhancing their quality and safety.</p>
-                <p>Specializing in various audits including Manufacturing, Social Compliance, Building Safety, Environmental, and Technical audits.</p>
+              <div className="space-y-2 text-gray-600 text-lg leading-relaxed">
+                <p>SUVTEX is a recognized independent Third-Party Quality Inspection Service Provider in Mumbai & across India, fully accredited by ISO 9001, 8001, 14001, 45001.</p>
+                <p>We provide a comprehensive range of audit and AQL quality inspection services, ensuring products meet the highest standards of quality, safety, compliance, and adherence to international requirements.</p>
+                <p>Our specialists deliver tailored technical solutions for both hardline and Softline product categories, enhancing product quality, safety, and reliability.</p>
+                <p>We specialize in various audits, including Manufacturing Audits, Social Compliance Audits, Safety Audits, Environmental Audits, and Technical Audits.</p>
               </div>
-              <div className="mt-10">
+              <div className="mt-4  ">
                 <Link to="/about" className="btn-primary px-8 py-4">
                   Read More <ArrowRight className="w-5 h-5" />
                 </Link>

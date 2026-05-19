@@ -140,7 +140,7 @@ export default function Products() {
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/80 via-suvtex-charcoal/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/20 via-suvtex-charcoal/20 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
           <ScrollReveal>

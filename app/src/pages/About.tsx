@@ -60,7 +60,7 @@ export default function About() {
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/80 via-suvtex-charcoal/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-suvtex-charcoal/10 via-suvtex-charcoal/10 to-transparent"></div>
         </div>
         <div className="relative z-10 container-premium">
           <SectionLabel text="About Us" variant="light" className="mb-4 drop-shadow-md" />
@@ -74,22 +74,36 @@ export default function About() {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-10 bg-white">
         <div className="container-premium">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[1.4fr_0.6fr] gap-8 lg:gap-16 items-center">
             <ScrollReveal>
               <div className="space-y-4 text-gray-600 leading-relaxed text-justify">
                 <p className="text-lg md:text-xl text-gray-900 font-medium leading-snug">
-                  SUVTEX INDIA is a trusted independent third-party audit and inspection agency based in Mumbai - India, delivering reliable quality assurance, compliance, and sourcing solutions to global clients.
+                  SUVTEX INDIA is a trusted independent Third-Party Quality Inspection Service Provider in Mumbai & across India , delivering reliable quality assurance, compliance, and sourcing solutions to global clients.
                 </p>
                 <p className="text-sm md:text-base">
                   We operate in alignment with internationally recognized standards, including ISO 9001 (Quality Management), ISO 14001 (Environmental Management), ISO 45001 (Occupational Health & Safety) and SA8000 (Social Accountability), ensuring a structured, transparent, and consistent approach across all our services.
                 </p>
                 <p className="text-sm md:text-base">
-                  With over two decades of industry experience, SUVTEX specializes in product inspections, factory audits, and end-to-end sourcing support across apparel, consumer goods, and industrial product categories. We work closely with manufacturers, suppliers, and buyers to ensure that every product meets defined specifications, regulatory requirements, and quality expectations.
+                  With over two decades of industry experience, SUVTEX specializes in:
                 </p>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm md:text-base text-gray-600 list-disc list-inside">
+                  <li>ISO-based Factory Technical Audits</li>
+                  <li>Production Follow-up (Fabric to Dispatch)</li>
+                  <li>Warehouse & Logistics Audits</li>
+                  <li>Fabric Inspection (4-Point System)</li>
+                  <li>Size Set, Dummy Fitting & PP Sample Approvals</li>
+                  <li>In-line, Mid-line & Final Random Inspections (AQL)</li>
+                  <li>Container Loading & Unloading Supervision</li>
+                </ul>
+                <p className="text-sm md:text-base">
+                  SUVTEX supports end-to-end product sourcing and order fulfilment execution, ensuring consistent quality, full compliance, and on-time delivery. We are associated with a reliable network of manufacturing partners across India, including Mumbai, who are certified and compliant with global standards such as ISO, SMETA, BSCI, WRAP, OEKO-TEX® Standard 100, GOTS, and BIS.                </p>
                 <p className="text-sm md:text-base">
                   Our strength lies in our technical expertise, strong vendor network across India, and a deep understanding of international compliance standards. We act as your reliable on-ground partner, helping you minimize risks, maintain product integrity, and achieve consistent quality in every shipment.
+                </p>
+                <p className="text-sm md:text-base">
+                  SUVTEX offers professional inspection services across major manufacturing hubs in India, including Mumbai, Bhiwandi, Vasai, Vapi, Ahmedabad, Tirupur, Erode, Ludhiana, Agra, Jaipur, Kolkata, Delhi NCR, Gurgaon, Bengaluru, Indore, Salem, Karur, and across India.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-2">
                   <Link to="/services" className="btn-primary px-6 py-3 text-sm">
@@ -104,13 +118,13 @@ export default function About() {
             </ScrollReveal>
             
             <ScrollReveal delay={200} className="relative flex justify-center">
-              <div className="relative z-10 w-full max-w-[350px]">
+              <div className="relative z-10 w-full max-w-2xl h-full">
                 <div className="absolute -inset-4 bg-suvtex-orange/10 rounded-[3rem] blur-3xl opacity-50"></div>
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5]">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-full">
                   <img
                     src={satyavanAbout}
                     alt="About Suvtex"
-                    className="w-full h-full object-cover object-top transform transition-transform duration-700 hover:scale-105"
+                    className="w-full h-full object-contain transform transition-transform duration-700 hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />

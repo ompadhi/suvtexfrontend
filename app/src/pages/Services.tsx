@@ -64,7 +64,7 @@ export default function Services() {
           }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-suvtex-charcoal/60 via-transparent to-suvtex-charcoal/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-suvtex-charcoal/20 via-transparent to-suvtex-charcoal/20"></div>
         </div>
         <div className="relative z-10 container-premium text-center">
           <ScrollReveal>
