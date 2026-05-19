@@ -42,3 +42,5 @@ pnpm-debug.log*
 app/node_modules/
 app/dist/
 app/.vite/
+.vercel
+.env*.local

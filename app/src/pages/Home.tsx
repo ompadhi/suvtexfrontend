@@ -188,15 +188,16 @@ export default function Home() {
             </div>
 
             <h1
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transition-all duration-700 delay-100 ${
+              className={`text-3xl md:text-3xl lg:text-4xl font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transition-all duration-700 delay-100 ${
                 isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               Welcome to{" "}
                <span className="text-gradient drop-shadow-none">SUVTEX</span> India
-              <span className="block text-xl md:text-2xl font-semibold text-white mt-4 tracking-wide drop-shadow-lg">
-                Your Trusted Inspection Partner
+              <span className="block text-2xl md:text-2xl font-semibold text-white mt-1 tracking-wide drop-shadow-lg">
+                Your Trusted Inspection Partner <br /> Trust & Integrity in Every Audit and Inspection
               </span>
+              
             </h1>
 
             <div className="space-y-4 max-w-2xl">
@@ -251,9 +252,10 @@ export default function Home() {
                 About Suvtex
               </div>
               <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-8 leading-tight">
-                Your Trusted Partner in Quality Inspection & Compliance in Mumbai, India <br />
+                Your Trusted Partner in Product Quality Inspection & Compliance in Mumbai, India <br />
               </h2>
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+                <p>SUVTEX is a recognized independent Third-Party Quality Inspection Service Provider in Mumbai & across India, fully accredited by ISO 9001, 8001, 14001, 45001.They provide a comprehensive range of Audit & AQL quality Inspection services ensuring products meet the highest standards of quality and safety and compliance.</p>
                 <p>We offer third Party inspection and audit services to assess product quality, ensuring adherence to international standards.</p>
                 <p>Our specialists provide tailored technical solutions for both hardline and Softline products, enhancing their quality and safety.</p>
                 <p>Specializing in various audits including Manufacturing, Social Compliance, Building Safety, Environmental, and Technical audits.</p>
