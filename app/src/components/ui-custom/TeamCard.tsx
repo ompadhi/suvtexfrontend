@@ -15,11 +15,11 @@ export default function TeamCard({
 }: TeamCardProps) {
   return (
     <div
-      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-500 hover:shadow-hover hover:border-suvtex-orange/20 hover:-translate-y-1 ${className}`}
+      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-500 hover:shadow-hover hover:border-suvtex-orange/20 hover:-translate-y-1 flex flex-col h-full ${className}`}
     >
       {/* Image */}
       {image && (
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
           <img
             src={image}
             alt={title}
@@ -44,20 +44,20 @@ export default function TeamCard({
       )}
       
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-suvtex-orange transition-colors duration-300">
+        <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-suvtex-orange transition-colors duration-300 flex-shrink-0">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 text-sm leading-relaxed flex-grow">
           {description}
         </p>
       </div>
       
       {/* Bottom Accent */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-suvtex-orange to-suvtex-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-suvtex-orange to-suvtex-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left flex-shrink-0"></div>
     </div>
   )
 }

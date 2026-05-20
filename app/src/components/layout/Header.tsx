@@ -36,8 +36,8 @@ export default function Header() {
         onMouseLeave={() => setIsHovered(false)}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isTransparent
-            ? 'bg-transparent py-6'
-            : 'bg-white border-b border-gray-100 shadow-sm py-4'
+            ? 'bg-transparent py-4 sm:py-6'
+            : 'bg-white border-b border-gray-100 shadow-sm py-3 sm:py-4'
         }`}
       >
         <div className="container-premium">
@@ -48,11 +48,11 @@ export default function Header() {
               <img
                 src={isTransparent ? logoWhite : logoBlack}
                 alt="SUVTEX India"
-                className={`h-22 md:h-[80px] w-auto object-contain transition-all duration-500 group-hover:scale-105 ${
+                className={`h-10 sm:h-22 md:h-[80px] w-auto object-contain transition-all duration-500 group-hover:scale-105 ${
                   isTransparent ? 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]' : ''
                 }`}
               />
-              <span className={`text-[0.85rem] md:text-[0.9rem] font-bold whitespace-nowrap ${isTransparent ? 'text-[#fff]' : 'text-[#0B3C5D]'}`}>Sustainable | Unbiased | Verified</span>
+              <span className={`text-[0.55rem] sm:text-[0.85rem] md:text-[0.9rem] font-bold whitespace-nowrap ${isTransparent ? 'text-[#fff]' : 'text-[#0B3C5D]'}`}>Sustainable | Unbiased | Verified</span>
             </Link>
 
             {/* Desktop Nav */}

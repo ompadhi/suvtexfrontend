@@ -17,38 +17,38 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div
-      className={`group relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 text-center overflow-hidden transition-all duration-500 hover:shadow-hover hover:border-suvtex-orange/20 hover:-translate-y-1 ${className}`}
+      className={`group relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 text-center overflow-hidden transition-all duration-500 hover:shadow-hover hover:border-suvtex-orange/20 hover:-translate-y-1 flex flex-col h-full ${className}`}
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-suvtex-orange/5 via-transparent to-suvtex-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Icon */}
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-suvtex-orange/10 to-suvtex-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:from-suvtex-orange group-hover:to-suvtex-gold group-hover:shadow-glow transition-all duration-500">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-suvtex-orange/10 to-suvtex-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:from-suvtex-orange group-hover:to-suvtex-gold group-hover:shadow-glow transition-all duration-500 flex-shrink-0">
           <Icon className="w-8 h-8 text-suvtex-orange group-hover:text-white transition-colors duration-500" />
         </div>
         
         {/* Stat */}
         {stat && (
-          <div className="text-3xl font-bold text-suvtex-orange mb-2">
+          <div className="text-3xl font-bold text-suvtex-orange mb-2 flex-shrink-0">
             {stat}
           </div>
         )}
         
         {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-suvtex-orange transition-colors duration-300">
+        <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-suvtex-orange transition-colors duration-300 flex-shrink-0">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 text-sm leading-relaxed flex-grow">
           {description}
         </p>
       </div>
       
       {/* Bottom Accent */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-suvtex-orange to-suvtex-gold group-hover:w-1/2 transition-all duration-500 rounded-full"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-suvtex-orange to-suvtex-gold group-hover:w-1/2 transition-all duration-500 rounded-full flex-shrink-0"></div>
     </div>
   )
 }

@@ -132,11 +132,12 @@ export default function Home() {
       setIsSubmitting(false)
     }
   }
+
   return (
     <div className="min-h-screen">
 
       {/* ─── HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative h-[650px] flex items-center overflow-hidden">
+      <section className="relative h-[550px] md:h-[650px] flex items-center overflow-hidden">
 
         <div className="absolute inset-0">
           <img 
@@ -147,21 +148,21 @@ export default function Home() {
             fetchPriority="high"
           />
           <div className="absolute inset-0" />
-          
         </div>
 
-        <div className="relative z-10 w-[1200px] mx-auto mt-[100px] pt-28 pb-24">
+        {/* FIX: reduced top margin and padding on mobile, added horizontal padding */}
+        <div className="relative z-10 container-premium md:w-[1200px] md:mx-auto mt-8 md:mt-[100px] pt-20 pb-16 px-4 md:px-0">
           <div className="max-w-2xl flex flex-col gap-4">
 
             {/* ── Accreditation Badges ── */}
             <div
-              className={`flex flex-wrap items-center gap-4 transition-all duration-700 ${
+              className={`flex flex-wrap items-center gap-3 transition-all duration-700 ${
                 isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               {/* ISO Badge */}
-              <div className="inline-flex items-center gap-3 px-4 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg">
-                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center p-1.5 flex-shrink-0 shadow-soft">
+              <div className="inline-flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg">
+                <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-1 flex-shrink-0 shadow-soft">
                   <img 
                     src={isoLogo} 
                     alt="ISO" 
@@ -170,39 +171,41 @@ export default function Home() {
                     fetchPriority="high"
                   />
                 </div>
-                <span className="text-white text-sm font-semibold tracking-wide">
-                   Accredited by ISO 9001 | 14001 | 45001
+                {/* FIX: smaller text on mobile */}
+                <span className="text-white text-xs md:text-sm font-semibold tracking-wide">
+                  Accredited by ISO 9001 | 14001 | 45001
                 </span>
               </div>
 
               {/* CQI IRCA Badge */}
-              <div className="inline-flex items-center px-4 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg transition-transform hover:scale-105 duration-300">
+              <div className="inline-flex items-center px-3 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg transition-transform hover:scale-105 duration-300">
                 <img
                   src={cqiIrcaLogo}
                   alt="CQI IRCA"
-                  className="h-7 w-auto object-cover"
+                  className="h-6 md:h-7 w-auto object-cover"
                   loading="eager"
                   fetchPriority="high"
                 />
               </div>
             </div>
 
+            {/* FIX: smaller heading on mobile */}
             <h1
-              className={`text-3xl md:text-3xl lg:text-4xl font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transition-all duration-700 delay-100 ${
+              className={`text-xl md:text-3xl lg:text-4xl font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transition-all duration-700 delay-100 ${
                 isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               Welcome to{" "}
-               <span className="text-gradient drop-shadow-none">SUVTEX</span> India
-              <span className="block text-2xl md:text-2xl font-semibold text-white mt-1 tracking-wide drop-shadow-lg">
-                Your Trusted Inspection Partner <br /> Trust & Integrity in Every Audit and Inspection
+              <span className="text-gradient drop-shadow-none">SUVTEX</span> India
+              <span className="block text-base md:text-2xl font-semibold text-white mt-1 tracking-wide drop-shadow-lg">
+                Your Trusted Inspection Partner <br className="hidden md:block" /> Trust & Integrity in Every Audit and Inspection
               </span>
-              
             </h1>
 
-            <div className="space-y-4 max-w-2xl">
+            <div className="space-y-3 max-w-2xl">
+              {/* FIX: smaller body text on mobile */}
               <p
-                className={`text-white text-lg md:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-200 ${
+                className={`text-white text-sm md:text-lg lg:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-200 ${
                   isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
@@ -210,7 +213,7 @@ export default function Home() {
               </p>
 
               <p
-                className={`text-white text-lg md:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-300 ${
+                className={`text-white text-sm md:text-lg lg:text-xl leading-relaxed font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transition-all duration-700 delay-300 ${
                   isHeroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
@@ -235,7 +238,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* FIX: hidden on mobile to avoid clipping */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:flex">
           <div className="w-7 h-11 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
             <div className="w-1 h-2.5 bg-white/50 rounded-full" />
           </div>
@@ -247,20 +251,21 @@ export default function Home() {
         <div className="container-premium">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-suvtex-orange rounded-full text-white text-sm font-medium mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-suvtex-orange rounded-full text-white text-sm font-medium mb-6 md:mb-8">
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                 About Suvtex
               </div>
-              <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4   leading-tight">
-                Your Trusted Partner in Product Quality Inspection & Compliance in Mumbai, India <br />
+              {/* FIX: smaller title on mobile */}
+              <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                Your Trusted Partner in Product Quality Inspection & Compliance in Mumbai, India
               </h2>
-              <div className="space-y-2 text-gray-600 text-lg leading-relaxed">
+              <div className="space-y-2 text-gray-600 text-base md:text-lg leading-relaxed">
                 <p>SUVTEX is a recognized independent Third-Party Quality Inspection Service Provider in Mumbai & across India, fully accredited by ISO 9001, 8001, 14001, 45001.</p>
                 <p>We provide a comprehensive range of audit and AQL quality inspection services, ensuring products meet the highest standards of quality, safety, compliance, and adherence to international requirements.</p>
                 <p>Our specialists deliver tailored technical solutions for both hardline and Softline product categories, enhancing product quality, safety, and reliability.</p>
                 <p>We specialize in various audits, including Manufacturing Audits, Social Compliance Audits, Safety Audits, Environmental Audits, and Technical Audits.</p>
               </div>
-              <div className="mt-4  ">
+              <div className="mt-4">
                 <Link to="/about" className="btn-primary px-8 py-4">
                   Read More <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -273,13 +278,11 @@ export default function Home() {
                 <img 
                   src={homepageAbout} 
                   alt="Quality Inspection" 
-                  className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-video lg:aspect-auto" 
+                  className="relative rounded-2xl md:rounded-[2rem] shadow-2xl w-full object-cover aspect-video" 
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              
-              {/* Decorative elements */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-suvtex-gold/10 rounded-full blur-3xl"></div>
             </ScrollReveal>
           </div>
@@ -290,15 +293,16 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-premium">
           <ScrollReveal>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft">
-                    <Shield className="w-6 h-6" />
+            {/* FIX: single col on mobile, 2-col on sm, 3-col on lg */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="group bg-gray-50 rounded-2xl p-5 md:p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft flex-shrink-0">
+                    <Shield className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wider">About SUVTEX</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 uppercase tracking-wider">About SUVTEX</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {[
                     { name: 'Why Choose Suvtex India?', path: '/about#why-choose-us' },
                     { name: 'Our Values', path: '/about#values-vision-mission' },
@@ -306,8 +310,8 @@ export default function Home() {
                     { name: 'Our Priorities', path: '/about#priorities' },
                   ].map((item, index) => (
                     <li key={index}>
-                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
-                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item text-sm md:text-base">
+                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors flex-shrink-0"></span>
                         {item.name}
                       </Link>
                     </li>
@@ -315,14 +319,14 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft">
-                    <Users className="w-6 h-6" />
+              <div className="group bg-gray-50 rounded-2xl p-5 md:p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft flex-shrink-0">
+                    <Users className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">EXPERT TEAM</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900">EXPERT TEAM</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {[
                     { name: 'Textiles Technologists', path: '/expert-team#textiles' },
                     { name: 'Leather Technologists', path: '/expert-team#leather' },
@@ -331,8 +335,8 @@ export default function Home() {
                     { name: 'Non stick ware Technologists', path: '/expert-team#non-stick' },
                   ].map((item, index) => (
                     <li key={index}>
-                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
-                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item text-sm md:text-base">
+                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors flex-shrink-0"></span>
                         {item.name}
                       </Link>
                     </li>
@@ -340,14 +344,15 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft">
-                    <Award className="w-6 h-6" />
+              {/* FIX: on sm screens this 3rd card spans full width */}
+              <div className="group bg-gray-50 rounded-2xl p-5 md:p-8 hover:bg-white hover:shadow-hover hover:border-suvtex-orange/20 border border-transparent transition-all duration-500 sm:col-span-2 lg:col-span-1">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-suvtex-orange to-suvtex-gold flex items-center justify-center text-white shadow-soft flex-shrink-0">
+                    <Award className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wider">Expertise</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 uppercase tracking-wider">Expertise</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {[
                     { name: 'Product Categories', path: '/products' },
                     { name: 'Strategic Sourcing Solutions', path: '/sourcing' },
@@ -356,8 +361,8 @@ export default function Home() {
                     { name: 'Consultancy Services', path: '/services#consultancy' },
                   ].map((item, index) => (
                     <li key={index}>
-                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item">
-                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors"></span>
+                      <Link to={item.path} className="flex items-center gap-3 text-gray-600 hover:text-suvtex-orange transition-colors group/item text-sm md:text-base">
+                        <span className="w-2 h-2 rounded-full bg-suvtex-orange/30 group-hover/item:bg-suvtex-orange transition-colors flex-shrink-0"></span>
                         {item.name}
                       </Link>
                     </li>
@@ -375,7 +380,7 @@ export default function Home() {
       {/* ─── SERVICES ─────────────────────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="container-premium">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-12 md:mb-16">
             <SectionLabel text="Our Services" className="mb-4" />
             <SectionTitle
               title="Comprehensive Inspection Solutions"
@@ -385,18 +390,20 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="mb-12">
+            <div className="mb-10 md:mb-12">
               <Link 
                 to="/services#factory-audits" 
-                className="flex items-center gap-4 mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
+                className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
               >
                 <div className="decorative-line group-hover/title:w-16 transition-all duration-500"></div>
-                <h3 className="text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors">
+                {/* FIX: smaller heading on mobile */}
+                <h3 className="text-lg md:text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors leading-tight">
                   ISO Based Factory Audit Services
                 </h3>
-                <ArrowRight className="w-5 h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300 flex-shrink-0" />
               </Link>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* FIX: 2-col on mobile instead of 1 */}
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {factoryAuditServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100}>
                     <ServiceCard 
@@ -415,15 +422,16 @@ export default function Home() {
             <div>
               <Link 
                 to="/services#product-services" 
-                className="flex items-center gap-4 mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
+                className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 group/title inline-flex hover:opacity-80 transition-opacity"
               >
                 <div className="decorative-line group-hover/title:w-16 transition-all duration-500"></div>
-                <h3 className="text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors">
+                <h3 className="text-lg md:text-2xl font-bold text-gray-900 group-hover/title:text-suvtex-orange transition-colors leading-tight">
                   Product Services
                 </h3>
-                <ArrowRight className="w-5 h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange opacity-0 -translate-x-4 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300 flex-shrink-0" />
               </Link>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* FIX: 2-col on mobile */}
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {productServices.slice(0, 4).map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100}>
                     <ServiceCard 
@@ -435,7 +443,7 @@ export default function Home() {
                   </ScrollReveal>
                 ))}
               </div>
-              <div className="mt-10 text-center">
+              <div className="mt-8 md:mt-10 text-center">
                 <Link to="/services" className="btn-secondary">
                   View All Services <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -446,12 +454,13 @@ export default function Home() {
       </section>
 
       {/* ─── CONTACT FORM ─────────────────────────────────────────── */}
-      <section className="py-12 md:py-16 bg-white relative overflow-hidden">
-        {/* Subtle decorative background */}
+      <section className="py-10 md:py-16 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-suvtex-orange/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
         
         <div className="container-premium relative z-10">
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+          {/* FIX: stacks to single column on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+
             {/* Contact Information Column */}
             <div className="lg:col-span-2 space-y-6">
               <ScrollReveal>
@@ -459,39 +468,40 @@ export default function Home() {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
                   Ready to Ensure Your <span className="text-suvtex-orange">Global Quality Standards?</span>
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed mb-8">
+                <p className="text-gray-600 text-base leading-relaxed mb-6 md:mb-8">
                   Have questions about our inspection services? We're here to help you ensure the highest quality standards for your products.
                 </p>
 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
-                      <Phone className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                <div className="space-y-4 md:space-y-6">
+                  <div className="flex items-start gap-3 md:gap-4 group">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
+                      <Phone className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Call Us Directly</h4>
-                      <p className="text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors cursor-pointer">+91 8108140336</p>
+                      {/* FIX: break-all prevents overflow on small screens */}
+                      <p className="text-base md:text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors cursor-pointer break-all">+91 8108140336</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
-                      <Mail className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                  <div className="flex items-start gap-3 md:gap-4 group">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
+                      <Mail className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Email Our Experts</h4>
-                      <p className="text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors cursor-pointer">suvtexindia@gmail.com</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors cursor-pointer break-all">suvtexindia@gmail.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
-                      <MapPin className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                  <div className="flex items-start gap-3 md:gap-4 group">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
+                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Visit Our Office</h4>
-                      <p className="text-lg font-bold text-gray-900 leading-snug">Mumbai, India</p>
-                      <p className="text-gray-500 mt-1">Total Independent Third Party Quality Control</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900 leading-snug">Mumbai, India</p>
+                      <p className="text-gray-500 mt-1 text-sm md:text-base">Total Independent Third Party Quality Control</p>
                     </div>
                   </div>
 
@@ -499,14 +509,14 @@ export default function Home() {
                     href="https://www.linkedin.com/in/satyavan-padhi-146640200/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-4 group"
+                    className="flex items-start gap-3 md:gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
-                      <Linkedin className="w-5 h-5 text-suvtex-orange group-hover:text-white transition-colors" />
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-suvtex-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-suvtex-orange group-hover:shadow-glow transition-all duration-500">
+                      <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-suvtex-orange group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Connect on LinkedIn</h4>
-                      <p className="text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors">Satyavan Padhi</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900 hover:text-suvtex-orange transition-colors">Satyavan Padhi</p>
                     </div>
                   </a>
                 </div>
@@ -516,15 +526,17 @@ export default function Home() {
             {/* Contact Form Column */}
             <div className="lg:col-span-3">
               <ScrollReveal delay={200}>
-                <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-premium border border-gray-100 relative overflow-hidden group">
+                {/* FIX: tighter padding and border radius on mobile */}
+                <div className="bg-white rounded-2xl md:rounded-[2rem] p-4 md:p-8 shadow-premium border border-gray-100 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-suvtex-orange/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110"></div>
                   
                   <div className="relative z-10">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
-                    <p className="text-gray-500 mb-6 text-sm">Fill out the form below and we'll get back to you within 24 hours.</p>
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Send Us a Message</h3>
+                    <p className="text-gray-500 mb-4 md:mb-6 text-sm">Fill out the form below and we'll get back to you within 24 hours.</p>
                     
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid sm:grid-cols-2 gap-4">
+                    <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                      {/* FIX: single column on very small screens, 2-col on sm+ */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                         <div>
                           <label className="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wide">First Name <span className="text-suvtex-orange">*</span></label>
                           <input 
@@ -550,7 +562,7 @@ export default function Home() {
                           />
                         </div>
                       </div>
-                      <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                         <div>
                           <label className="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wide">Email <span className="text-suvtex-orange">*</span></label>
                           <input 
@@ -587,33 +599,34 @@ export default function Home() {
                           className="input-premium resize-none text-sm"
                         ></textarea>
                       </div>
-                      <div className="flex items-center gap-3 py-1">
+                      <div className="flex items-start gap-3 py-1">
                         <input 
                           type="checkbox" 
                           name="consent"
                           id="home-consent" 
                           checked={formData.consent}
                           onChange={handleChange}
-                          className="w-4 h-4 rounded-md border-gray-300 text-suvtex-orange focus:ring-suvtex-orange cursor-pointer" 
+                          className="w-4 h-4 mt-0.5 rounded-md border-gray-300 text-suvtex-orange focus:ring-suvtex-orange cursor-pointer flex-shrink-0" 
                         />
-                        <label htmlFor="home-consent" className="text-xs text-gray-600 cursor-pointer select-none">
+                        <label htmlFor="home-consent" className="text-xs text-gray-600 cursor-pointer select-none leading-relaxed">
                           I agree to receive communications from SUVTEX about quality services.
                         </label>
                       </div>
+                      {/* FIX: slightly smaller button on mobile */}
                       <button 
                         type="submit" 
                         disabled={isSubmitting}
-                        className="btn-primary w-full justify-center text-base py-4 group disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="btn-primary w-full justify-center text-sm md:text-base py-3 md:py-4 group disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
-                            <Loader2 className="w-6 h-6 animate-spin mr-2" />
+                            <Loader2 className="w-5 h-5 animate-spin mr-2" />
                             Sending...
                           </>
                         ) : (
                           <>
                             Send Your Message 
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                           </>
                         )}
                       </button>

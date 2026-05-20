@@ -184,7 +184,7 @@ export default function About() {
               },
             ].map((feature, index) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <div className="bg-white rounded-2xl p-8 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-500 border border-gray-100">
+                <div className="bg-white rounded-2xl py-0 px-6 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-500 border border-gray-100">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-suvtex-orange/10 to-suvtex-gold/10 flex items-center justify-center mb-6">
                     <feature.icon className="w-7 h-7 text-suvtex-orange" />
                   </div>
